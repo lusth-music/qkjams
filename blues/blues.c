@@ -6,7 +6,7 @@
 
 
 #define dir "/usr/local/share/samples/"
-#define base "bass/clean_"
+#define base "guitar-electric/clean_"
 
 /* change PROGRAM_NAME and PROGRAM_VERSION appropriately */
 
