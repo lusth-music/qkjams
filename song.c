@@ -47,9 +47,10 @@ twelveBars(int instrument,int octave){
     bar(instrument,octave,5);
     bar(instrument,octave,4);
     bar(instrument,octave,1);
-    bar(instrument,octave,1);
     if(last){ barLast(instrument,octave,1);}
-    else{ bar(instrument,octave,5);}
+    else{
+        bar(instrument,octave,1);
+        bar(instrument,octave,5);}
 
 }
 
