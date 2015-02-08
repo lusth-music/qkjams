@@ -29,6 +29,7 @@ barLast(int instrument, int octave, int chord){
     c(chord,Q,instrument,octave);
     c(chord,Q,instrument,octave);
     c(chord,Q,instrument,octave);
+    c(chord,Q,instrument,octave);
     if(last) setSustain(0.999999);
     c(chord,Q,instrument,octave);
 }
@@ -46,9 +47,9 @@ twelveBars(int instrument,int octave){
     bar(instrument,octave,1);//8
     bar(instrument,octave,5);
     bar(instrument,octave,4);
-    bar(instrument,octave,1);
     if(last){ barLast(instrument,octave,1);}
     else{
+        bar(instrument,octave,1);
         bar(instrument,octave,1);
         bar(instrument,octave,5);}
 
