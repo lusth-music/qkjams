@@ -8,6 +8,16 @@
 #define dir "/usr/local/share/samples/"
 #define base "guitar-electric/clean_"
 
+/*
+
+ _____           _         _            _____
+|     |_ _ ___ _| |___ ___|_|_ _ ___   |     |___ ___ ___ ___
+|  |  | | | .'| . | .'|  _| | | |_ -|  | | | | . | . |  _| -_|
+|__  _|___|__,|___|__,|_| |_|___|___|  |_|_|_|___|___|_| |___|
+   |__|
+*/
+
+
 /* change PROGRAM_NAME and PROGRAM_VERSION appropriately */
 
 char *PROGRAM_NAME = "song";
