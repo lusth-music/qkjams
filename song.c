@@ -27,11 +27,16 @@ static int last = 0;
 
 static
 bar(int instrument, int octave, int chord){
-    c(chord,Q,instrument,octave);
-    c(chord,Q,instrument,octave);
-    c(chord,Q,instrument,octave);
+    c(chord,I,instrument,octave);
+    c(chord,I,instrument,octave);
+    c(chord,I,instrument,octave);
+    c(chord,I,instrument,octave);
     //if(last) setSustain(0.999999);
-    c(chord,Q,instrument,octave);
+    c(chord,I,instrument,octave);
+    c(chord,I,instrument,octave);
+    c(chord,I,instrument,octave);
+    c(chord,S,instrument,octave);c(chord,S,instrument,octave);
+    // c(chord,Q,instrument,octave);
 }
 
 static
@@ -76,15 +81,16 @@ main()
     instrument = readScale(dir,base);
 
     setKey(A);
-    setTempo(180);
-    setTime(4,4);
+    setTempo(72);
+    setTime(6,8);
     setStride(0.05);
     setSustain(0.99995);
     setAmplitude(0.3);
 
     openOutput("song.rra",0,0);
 
-    softer(4);
+    rest(W);
+    //softer(4);
     twelveBars(instrument,octave);
     last = 1;
     twelveBars(instrument,octave);
