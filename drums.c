@@ -24,28 +24,20 @@ intro()
 }
 
 void
-    mess()
+    shuffleDrums()
     {
         spot = getLocation();
         drumkitCrash    ( 1,1,"X---------------",(char *) 0); setLocation(spot);
         drumkitHHOpen   ( 1,1,"----x---x---x---",(char *) 0); setLocation(spot);
         drumkitSnare    ( 1,1,"--------X-------",(char *) 0); setLocation(spot);
-        //drumkitKick   ( 1,1,"rxxrxxrxxrxxrxxr",(char *) 0); setLocation(spot);
         drumkitKick     ( 1,1,"x---x---x---x---",(char *) 0); setLocation(spot);
+
         spot = getLocation();
-        drumkitHHClosed ( 11,1,"x-x-x-x-x-x-x-x-",(char *) 0); setLocation(spot);
-        drumkitSnare    ( 11,1,"x--x----X-x--x--",(char *) 0); setLocation(spot);
-        // drumkitKick   ( 1,1,"xxrxxrxxrxxrxxrx",(char *) 0); spot = getLocation(); //setLocation(spot);
-        // drumkitKick   ( 1,1,"xrxxrxxrxxrxxrxx",(char *) 0); spot = getLocation(); //setLocation(spot);
-        // drumkitKick   ( 1,1,"rxxrxxrxxrxxrxxr",(char *) 0); spot = getLocation(); //setLocation(spot);
-        // drumkitKick   ( 1,1,"xxrxxrxxrxxrxxrx",(char *) 0); spot = getLocation(); //setLocation(spot);
-        // drumkitKick   ( 1,1,"xrxxrxxrxxrxxrxx",(char *) 0); spot = getLocation(); //setLocation(spot);
-        // drumkitKick   ( 1,1,"rxxxrxxrxxrxxrxx",(char *) 0); spot = getLocation(); //setLocation(spot);
-        // drumkitKick   ( 1,1,"rxxrxxrxxrxxrxxr",(char *) 0); spot = getLocation(); //setLocation(spot);
-        drumkitKick   ( 11,1,"x---x---x---x---",(char *) 0); //setLocation(spot);
-        //spot = getLocation();
+        drumkitHHClosed ( 24,1,"f--gf--gf--gf--g",(char *) 0); setLocation(spot);
+        drumkitSnare    ( 24,1,"----X-------X---",(char *) 0); setLocation(spot);
+        drumkitKick     ( 24,1,"X-------X-------",(char *) 0);
         setAmplitude(0.9);
-        drumkitKick   ( 12,1,"rxxrxxrxxrxxrxx-",(char *) 0); //setLocation(spot);
+        //drumkitKick   ( 12,1,"rxxrxxrxxrxxrxx-",(char *) 0); //setLocation(spot);
     }
 
 void
@@ -84,8 +76,8 @@ main()
     //instrument = readScale(dir,base);
 
     //setKey(A);
-    setTempo(72);
-    setTime(6,8);
+    setTempo(120);
+    setTime(4,4);
     setStride(0.05);
     setSustain(0.99995);
     setAmplitude(0.999);
@@ -95,17 +87,7 @@ main()
     //drumkitStick(1,1,"xxxx",(char *) 0); //intro
 
     //spot = getLocation();
-    dressIntro();
-    dress();
-    dress();
-    dress();
-    dress();
-    dress();
-    dress();
-    dress();
-    dress();
-    dress();
-    dress();
+    shuffleDrums();
     //spot = getLocation();
     //mess();
     //mess();

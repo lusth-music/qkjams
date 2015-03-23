@@ -81,8 +81,8 @@ main()
     instrument = readScale(dir,base);
 
     setKey(A);
-    setTempo(72);
-    setTime(6,8);
+    setTempo(120);
+    setTime(4,4);
     setStride(0.05);
     setSustain(0.99995);
     setAmplitude(0.3);
