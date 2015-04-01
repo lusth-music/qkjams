@@ -31,12 +31,10 @@ bar(int instrument, int octave, int chord){
     c(chord,I,instrument,octave);
     c(chord,I,instrument,octave);
     c(chord,I,instrument,octave);
-    //if(last) setSustain(0.999999);
     c(chord,I,instrument,octave);
     c(chord,I,instrument,octave);
     c(chord,I,instrument,octave);
     c(chord,S,instrument,octave);c(chord,S,instrument,octave);
-    // c(chord,Q,instrument,octave);
 }
 
 static
@@ -74,7 +72,7 @@ int
 main()
     {
     int instrument;
-    int octave = 1;
+    int octave = 3;
 
     songInit();
 
@@ -90,7 +88,6 @@ main()
     openOutput("song.rra",0,0);
 
     rest(W);
-    //softer(4);
     twelveBars(instrument,octave);
     last = 1;
     twelveBars(instrument,octave);
