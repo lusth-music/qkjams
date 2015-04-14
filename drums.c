@@ -24,45 +24,23 @@ intro()
 }
 
 void
-    shuffleDrums()
-    {
+shuffleDrumIntro()
+{
         spot = getLocation();
         drumkitCrash    ( 1,1,"X---------------",(char *) 0); setLocation(spot);
         drumkitHHOpen   ( 1,1,"----x---x---x---",(char *) 0); setLocation(spot);
         drumkitSnare    ( 1,1,"--------X-------",(char *) 0); setLocation(spot);
         drumkitKick     ( 1,1,"x---x---x---x---",(char *) 0); setLocation(spot);
+}
 
+
+void 
+shuffleDrums()
+{
         spot = getLocation();
         drumkitHHClosed ( 24,1,"f--gf--gf--gf--g",(char *) 0); setLocation(spot);
         drumkitSnare    ( 24,1,"----X-------X---",(char *) 0); setLocation(spot);
         drumkitKick     ( 24,1,"X-------X-------",(char *) 0);
-        setAmplitude(0.9);
-        //drumkitKick   ( 12,1,"rxxrxxrxxrxxrxx-",(char *) 0); //setLocation(spot);
-    }
-
-void
-dressIntro()
-{
-    spot = getLocation();
-    drumkitCrash    ( 1,1,"----------------",(char *) 0); setLocation(spot);
-    drumkitHHOpen   ( 1,1,"----x---x---x---",(char *) 0); setLocation(spot);
-    drumkitSnare    ( 1,1,"------------X---",(char *) 0); setLocation(spot);
-    drumkitKick     ( 1,1,"X---------------",(char *) 0); //setLocation(spot);
-}
-
-void
-dress()
-{
-    spot = getLocation();
-    drumkitCrash    ( 1,1,"----------------",(char *) 0); setLocation(spot);
-    drumkitHHOpen   ( 1,1,"xxxxxxxxxxxxxxxx",(char *) 0); setLocation(spot);
-    drumkitSnare    ( 1,1,"X-X-X-X-X-X-X-X-",(char *) 0); setLocation(spot);
-    drumkitKick     ( 1,1,"x-x-x-x-x-x-x-x-",(char *) 0); //setLocation(spot);
-    // spot = getLocation();
-    // drumkitCrash    ( 1,1,"----------------",(char *) 0); setLocation(spot);
-    // drumkitHHOpen   ( 1,1,"x---x---x---x---",(char *) 0); setLocation(spot);
-    // drumkitSnare    ( 1,1,"----------------",(char *) 0); setLocation(spot);
-    // drumkitKick     ( 1,1,"--------X-------",(char *) 0); //setLocation(spot);
 }
 
 int
@@ -72,7 +50,6 @@ main()
     //int octave = 1;
     songInit();
 
-
     //instrument = readScale(dir,base);
 
     //setKey(A);
@@ -80,32 +57,13 @@ main()
     setTime(4,4);
     setStride(0.05);
     setSustain(0.99995);
-    setAmplitude(0.999);
+    setAmplitude(0.7);
 
     openOutput("drums.rra",0,0);
 
-    //drumkitStick(1,1,"xxxx",(char *) 0); //intro
-
-    //spot = getLocation();
+    shuffleDrumIntro();
     shuffleDrums();
-    //spot = getLocation();
-    //mess();
-    //mess();
-
-    // spot = getLocation();
-    // rest(W);
-    // rest(W);
-    // rest(W);
-    // rest(W);
-    // mess();
-    // drumkitKick   (10,1,"XxX-XxX-XxX-XxX-",(char *) 0); setLocation(spot);
-    // drumkitSnare  (10,1,"---X---X---X---X",(char *) 0); setLocation(spot);
-    // drumkitHHPedal(10,1,"--x---x---x---x-",(char *) 0); setLocation(spot);
-    // drumkitRim    (10,1,"x--xx--x--xx--x-",(char *) 0); setLocation(spot);
-    // drumkitTomHi  (10,1,"x---x-----x---x-",(char *) 0); setLocation(spot);
-    // drumkitTom    (10,1,"-X-X-X-x-X-X-X-x",(char *) 0); setLocation(spot);
-    // drumkitTomLo  (10,1,"X-x-X-x-X-x-X-x-",(char *) 0);
-
+    shuffleDrums();
     closeOutput();
 
     return 0;

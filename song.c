@@ -68,6 +68,19 @@ twelveBars(int instrument,int octave){
 
 }
 
+static
+experimentalBar(int instrument, int octave){
+
+    rest(W);
+    c(1,W,instrument,octave);
+    c(4,W,instrument,octave);
+    c(4,W,instrument,octave);
+    c(1,W,instrument,octave);
+    c(5,W,instrument,octave);
+    c(4,W,instrument,octave);
+    c(1,W,instrument,octave);
+}
+
 int
 main()
     {
@@ -87,10 +100,17 @@ main()
 
     openOutput("song.rra",0,0);
 
-    rest(W);
+    experimentalBar(instrument, octave);
+    experimentalBar(instrument, octave);
+    experimentalBar(instrument, octave);
+
+    experimentalBar(instrument, octave);
+    experimentalBar(instrument, octave);
+    experimentalBar(instrument, octave);
+    /*rest(W);
     twelveBars(instrument,octave);
     last = 1;
-    twelveBars(instrument,octave);
+    twelveBars(instrument,octave);*/
 
     closeOutput();
 
