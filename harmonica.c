@@ -6,8 +6,7 @@
 
 
 #define dir "/usr/local/share/samples/"
-#define base "guitar-electric/clean_"
-#define base2 "mandolin/sample_"
+#define base "harmonica/pocket_"
 
 /*
 
@@ -25,7 +24,6 @@ char *PROGRAM_NAME = "song";
 char *PROGRAM_VERSION = "0.01";
 
 static int last = 0;
-int spot;
 
 static
 bar(int instrument, int octave, int chord){
@@ -74,41 +72,45 @@ static
 experimentalBar(int instrument, int octave){
 
     rest(W);
-    c(1,W,instrument,octave);
-    c(4,W,instrument,octave);
-    c(4,W,instrument,octave);
-    c(1,W,instrument,octave);
-    c(5,W,instrument,octave);
-    c(4,W,instrument,octave);
-    c(1,W,instrument,octave);
+    c(1,H,instrument,octave);
+    rest(H);
+    c(4,H,instrument,octave);
+    rest(H);
+    c(4,H,instrument,octave);
+    rest(H);
+    c(1,H,instrument,octave);
+    rest(H);
+    c(5,H,instrument,octave);
+    rest(H);
+    c(4,H,instrument,octave);
+    rest(H);
+    c(1,H,instrument,octave);
+    rest(H);
 }
 
 static
-ex2(int instrument, int octave)
+restBar()
 {
-    rest(H);
+
     rest(W);
-    c(1,W,instrument,octave);
-    c(4,W,instrument,octave);
-    c(4,W,instrument,octave);
-    c(1,W,instrument,octave);
-    c(5,W,instrument,octave);
-    c(4,W,instrument,octave);
-    c(1,H,instrument,octave);
+    rest(W);
+    rest(W);
+    rest(W);
+    rest(W);
+    rest(W);
+    rest(W);
+    rest(W);
 }
 
 int
 main()
     {
     int instrument;
-    int instrument2;
-    int octave = 2;
+    int octave = 3;
 
     songInit();
 
     instrument = readScale(dir,base);
-    instrument2 = readScale(dir,base2);
-
 
     setKey(A);
     setTempo(120);
@@ -117,35 +119,20 @@ main()
     setSustain(0.99995);
     setAmplitude(0.3);
 
-    openOutput("song.rra",0,0);
+    openOutput("harmonica.rra",0,0);
+
+    restBar();
+    restBar();
+    restBar();
 
     experimentalBar(instrument, octave);
+    experimentalBar(instrument, octave-1);
+    experimentalBar(instrument, octave-2);
+
+    experimentalBar(instrument, octave);
+    experimentalBar(instrument, octave+1);
     experimentalBar(instrument, octave);
 
-    spot = getLocation();
-    experimentalBar(instrument, octave); setLocation(spot);
-    ex2(instrument2, octave);
-
-    spot = getLocation();
-    experimentalBar(instrument, octave); setLocation(spot);
-    ex2(instrument2, octave);
-    spot = getLocation();
-    experimentalBar(instrument, octave); setLocation(spot);
-    ex2(instrument2, octave);
-    spot = getLocation();
-    experimentalBar(instrument, octave); setLocation(spot);
-    ex2(instrument2, octave);
-    
-    spot = getLocation();
-    experimentalBar(instrument, octave); setLocation(spot);
-    ex2(instrument2, octave);
-    spot = getLocation();
-    experimentalBar(instrument, octave); setLocation(spot);
-    ex2(instrument2, octave);
-    spot = getLocation();
-    experimentalBar(instrument, octave); setLocation(spot);
-    ex2(instrument2, octave);
-    
     closeOutput();
 
     return 0;

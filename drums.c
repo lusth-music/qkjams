@@ -64,6 +64,9 @@ main()
     shuffleDrumIntro();
     shuffleDrums();
     shuffleDrums();
+
+    rest(W);
+    shuffleDrums();
     closeOutput();
 
     return 0;
