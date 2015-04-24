@@ -26,21 +26,50 @@ intro()
 void
 shuffleDrumIntro()
 {
-        spot = getLocation();
-        drumkitCrash    ( 1,1,"X---------------",(char *) 0); setLocation(spot);
-        drumkitHHOpen   ( 1,1,"----x---x---x---",(char *) 0); setLocation(spot);
-        drumkitSnare    ( 1,1,"--------X-------",(char *) 0); setLocation(spot);
-        drumkitKick     ( 1,1,"x---x---x---x---",(char *) 0); setLocation(spot);
+    spot = getLocation();
+    drumkitCrash    ( 1,1,"X---------------",(char *) 0); setLocation(spot);
+    drumkitHHOpen   ( 1,1,"----x---x---x---",(char *) 0); setLocation(spot);
+    drumkitSnare    ( 1,1,"--------X-------",(char *) 0); setLocation(spot);
+    drumkitKick     ( 1,1,"x---x---x---x---",(char *) 0);
 }
 
 
-void 
-shuffleDrums()
+void
+shuffleDrums(int measures)
 {
         spot = getLocation();
-        drumkitHHClosed ( 24,1,"f--gf--gf--gf--g",(char *) 0); setLocation(spot);
-        drumkitSnare    ( 24,1,"----X-------X---",(char *) 0); setLocation(spot);
-        drumkitKick     ( 24,1,"X-------X-------",(char *) 0);
+        drumkitHHClosed ( measures,1,"f--gf--gf--gf--g",(char *) 0); setLocation(spot);
+        drumkitSnare    ( measures,1,"----xg------xg--",(char *) 0); setLocation(spot);
+        drumkitKick     ( measures,1,"x-------x-------",(char *) 0);
+}
+
+void
+slowDrum(int measures)
+{
+        spot = getLocation();
+        drumkitHHClosed ( measures,1,"f--------------g",(char *) 0); setLocation(spot);
+        drumkitSnare    ( measures,1,"--------x-------",(char *) 0); setLocation(spot);
+        drumkitKick     ( measures,1,"X---------------",(char *) 0);
+}
+
+void
+drumCrash()
+{
+    spot = getLocation();
+    drumkitCrash    ( 1,1,"X",(char *) 0); setLocation(spot);
+    drumkitSnare    ( 1,1,"X",(char *) 0); setLocation(spot);
+    drumkitKick     ( 1,1,"X",(char *) 0);
+
+}
+
+
+void
+slowDrum2(int measures)
+{
+    spot = getLocation();
+    drumkitCrash    ( measures,1,"f---",(char *) 0); setLocation(spot);
+    drumkitSnare    ( measures,1,"--x-",(char *) 0); setLocation(spot);
+    drumkitKick     ( measures,1,"--x-",(char *) 0);
 }
 
 int
@@ -60,13 +89,36 @@ main()
     setAmplitude(0.7);
 
     openOutput("drums.rra",0,0);
-
+//goto here;
     shuffleDrumIntro();
-    shuffleDrums();
-    shuffleDrums();
-
+    shuffleDrums(12);
+    shuffleDrums(13);
     rest(W);
-    shuffleDrums();
+
+    here:;
+setAmplitude(0.3);
+    crazydrum:;
+    drumCrash();
+    rest(W);
+    drumCrash();
+    drumCrash();
+    drumCrash();
+    rest(W);
+    drumCrash();
+    rest(W);
+    drumCrash();
+    rest(W);
+    drumCrash();
+    drumCrash();
+    rest(W);
+    setAmplitude(0.7);
+    slowDrum(14);
+    //rest(W);
+    shuffleDrums(12);
+    here2:;
+    shuffleDrums(12);
+    here3:;
+    //shuffleDrums(12);
     closeOutput();
 
     return 0;

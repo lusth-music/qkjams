@@ -113,7 +113,7 @@ main()
     instrument = readScale(dir,base);
 
     setKey(A);
-    setTempo(120);
+    setTempo(60);
     setTime(4,4);
     setStride(0.05);
     setSustain(0.99995);
@@ -122,16 +122,13 @@ main()
     openOutput("harmonica.rra",0,0);
 
     restBar();
-    restBar();
-    restBar();
-
+    //restBar();
+    //restBar();
+    rest(H);
     experimentalBar(instrument, octave);
-    experimentalBar(instrument, octave-1);
-    experimentalBar(instrument, octave-2);
-
-    experimentalBar(instrument, octave);
+    rest(W);
     experimentalBar(instrument, octave+1);
-    experimentalBar(instrument, octave);
+    experimentalBar(instrument, octave+2);
 
     closeOutput();
 
